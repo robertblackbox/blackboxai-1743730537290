@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uber Clone</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'uber-black': '#000000',
+                        'uber-white': '#FFFFFF',
+                        'uber-gray': '#EEEEEE',
+                        'uber-gray-light': '#F6F6F6',
+                    },
+                    fontFamily: {
+                        'uber': ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .uber-input {
+            border: none;
+            background: transparent;
+            font-size: 1.125rem;
+            width: 100%;
+            padding: 0.5rem 0;
+        }
+        .uber-input:focus {
+            outline: none;
+        }
+        .uber-input::placeholder {
+            color: #BBBBBB;
+        }
+        .uber-shadow {
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+        }
+        .uber-button {
+            transition: transform 0.15s ease;
+        }
+        .uber-button:hover {
+            transform: scale(1.02);
+        }
+        .uber-link {
+            transition: opacity 0.2s ease;
+        }
+        .uber-link:hover {
+            opacity: 0.7;
+        }
+    </style>
+</head>
+<body class="bg-white">
+    <!-- Promo Banner -->
+    <div class="bg-uber-black text-uber-white px-4 py-3">
+        <div class="flex items-center justify-between max-w-7xl mx-auto">
+            <div class="flex items-center space-x-3">
+                <i class="fas fa-tag"></i>
+                <span class="text-sm">Get 30% off your first ride with promo code WEBUFT2025 (up to $8 off). Terms apply.*</span>
+            </div>
+            <button class="text-uber-white uber-link">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="bg-uber-black text-uber-white py-3 sticky top-0 z-50">
+        <nav class="flex justify-between items-center max-w-7xl mx-auto px-6">
+            <div class="flex items-center space-x-10">
+                <a href="#" class="text-[28px] font-bold tracking-tight">Uber</a>
+                <div class="hidden lg:flex space-x-8">
+                    <a href="#" class="uber-link flex items-center text-[16px]">
+                        <i class="fas fa-car mr-3"></i>
+                        Ride
+                    </a>
+                    <a href="#" class="uber-link flex items-center text-[16px]">
+                        <i class="fas fa-key mr-3"></i>
+                        Rent
+                    </a>
+                    <a href="#" class="uber-link flex items-center text-[16px]">
+                        <i class="fas fa-box mr-3"></i>
+                        Courier
+                    </a>
+                </div>
+            </div>
+            <div class="flex items-center space-x-8">
+                <button class="hidden lg:flex items-center uber-link text-[16px]">
+                    <i class="fas fa-search mr-2"></i>
+                    Search
+                </button>
+                <button class="hidden lg:block uber-link text-[16px]">Log in</button>
+                <button class="bg-uber-white text-uber-black px-4 py-2.5 rounded-full text-[16px] font-medium uber-button">Sign up</button>
+                <button class="lg:hidden">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="relative min-h-[85vh] bg-cover bg-center" style="background-image: url('https://images.pexels.com/photos/3052361/pexels-photo-3052361.jpeg?auto=compress&cs=tinysrgb&w=1920');">
+            <div class="absolute inset-0 bg-gradient-to-b from-black/60 to-black/30"></div>
+            <div class="relative max-w-7xl mx-auto px-6 py-24">
+                <h1 class="text-uber-white text-6xl font-bold mb-12 max-w-2xl leading-[1.15]">Go anywhere with Uber</h1>
+                <div class="bg-uber-white p-8 rounded-xl max-w-xl uber-shadow">
+                    <div class="flex items-start space-x-6 border-b border-gray-200 pb-6 mb-6">
+                        <div class="flex-1">
+                            <label class="block text-sm text-gray-500 mb-2">Pickup location</label>
+                            <input type="text" placeholder="Enter pickup location" class="uber-input">
+                        </div>
+                        <div class="pt-8">
+                            <button class="p-2 hover:bg-uber-gray-light rounded-full transition-colors">
+                                <i class="fas fa-arrows-alt-v text-gray-400 text-xl"></i>
+                            </button>
+                        </div>
+                        <div class="flex-1">
+                            <label class="block text-sm text-gray-500 mb-2">Dropoff location</label>
+                            <input type="text" placeholder="Enter destination" class="uber-input">
+                        </div>
+                    </div>
+                    <div class="flex gap-4">
+                        <button class="flex items-center bg-uber-gray-light px-6 py-3 rounded-full hover:bg-uber-gray transition-colors">
+                            <i class="far fa-calendar mr-2"></i>
+                            Today
+                        </button>
+                        <button class="flex items-center bg-uber-gray-light px-6 py-3 rounded-full hover:bg-uber-gray transition-colors">
+                            <i class="far fa-clock mr-2"></i>
+                            Now
+                        </button>
+                        <button class="flex-1 bg-uber-black text-uber-white px-6 py-3 rounded-full font-medium uber-button">
+                            See prices
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section class="py-24 px-6 bg-uber-gray-light">
+            <div class="max-w-7xl mx-auto">
+                <div class="grid md:grid-cols-3 gap-12">
+                    <div class="text-center">
+                        <div class="bg-uber-white p-8 rounded-xl mb-6 uber-shadow uber-button cursor-pointer">
+                            <i class="fas fa-car text-5xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-semibold mb-3">Ride</h3>
+                        <p class="text-gray-600 text-lg">Request a ride at any time, anywhere</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="bg-uber-white p-8 rounded-xl mb-6 uber-shadow uber-button cursor-pointer">
+                            <i class="fas fa-utensils text-5xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-semibold mb-3">Uber Eats</h3>
+                        <p class="text-gray-600 text-lg">Your favorite food, delivered fast</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="bg-uber-white p-8 rounded-xl mb-6 uber-shadow uber-button cursor-pointer">
+                            <i class="fas fa-box text-5xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-semibold mb-3">Freight</h3>
+                        <p class="text-gray-600 text-lg">Large or small, we ship it all</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Business Section -->
+        <section class="py-24 px-6">
+            <div class="max-w-7xl mx-auto">
+                <div class="grid md:grid-cols-2 gap-16 items-center">
+                    <div>
+                        <h2 class="text-5xl font-bold mb-8 leading-tight">Uber for Business</h2>
+                        <p class="text-gray-600 text-xl mb-10">Transform the way your company moves and feeds its people.</p>
+                        <button class="bg-uber-black text-uber-white px-8 py-4 rounded-full text-lg font-medium uber-button">
+                            See how
+                        </button>
+                    </div>
+                    <div>
+                        <img src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" 
+                             alt="Business people in meeting" 
+                             class="rounded-xl uber-shadow w-full">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-uber-black text-uber-white py-16 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-4 gap-12">
+                <div>
+                    <h4 class="text-xl font-semibold mb-6">Company</h4>
+                    <ul class="space-y-4">
+                        <li><a href="#" class="uber-link">About us</a></li>
+                        <li><a href="#" class="uber-link">Our offerings</a></li>
+                        <li><a href="#" class="uber-link">Newsroom</a></li>
+                        <li><a href="#" class="uber-link">Investors</a></li>
+                        <li><a href="#" class="uber-link">Blog</a></li>
+                        <li><a href="#" class="uber-link">Careers</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-xl font-semibold mb-6">Products</h4>
+                    <ul class="space-y-4">
+                        <li><a href="#" class="uber-link">Ride</a></li>
+                        <li><a href="#" class="uber-link">Drive</a></li>
+                        <li><a href="#" class="uber-link">Deliver</a></li>
+                        <li><a href="#" class="uber-link">Eat</a></li>
+                        <li><a href="#" class="uber-link">Uber for Business</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-xl font-semibold mb-6">Global citizenship</h4>
+                    <ul class="space-y-4">
+                        <li><a href="#" class="uber-link">Safety</a></li>
+                        <li><a href="#" class="uber-link">Diversity and Inclusion</a></li>
+                        <li><a href="#" class="uber-link">Sustainability</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-xl font-semibold mb-6">Connect with us</h4>
+                    <div class="flex space-x-6">
+                        <a href="#" class="uber-link"><i class="fab fa-facebook text-2xl"></i></a>
+                        <a href="#" class="uber-link"><i class="fab fa-twitter text-2xl"></i></a>
+                        <a href="#" class="uber-link"><i class="fab fa-instagram text-2xl"></i></a>
+                        <a href="#" class="uber-link"><i class="fab fa-linkedin text-2xl"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-16 pt-8 border-t border-gray-800">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <div class="text-3xl font-bold mb-6 md:mb-0">Uber</div>
+                    <div class="flex flex-wrap justify-center gap-8">
+                        <a href="#" class="uber-link">Privacy</a>
+                        <a href="#" class="uber-link">Accessibility</a>
+                        <a href="#" class="uber-link">Terms</a>
+                    </div>
+                </div>
+                <div class="mt-6 text-center text-gray-400">
+                    © 2024 Uber Technologies Inc.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const menuButton = document.querySelector('button.lg\\:hidden');
+        menuButton.addEventListener('click', () => {
+            // Add mobile menu functionality here
+            alert('Mobile menu clicked');
+        });
+
+        // Promo banner close
+        const closeButton = document.querySelector('.fa-times').parentElement;
+        closeButton.addEventListener('click', () => {
+            closeButton.closest('div.bg-uber-black').style.display = 'none';
+        });
+    </script>
+</body>
+</html>
